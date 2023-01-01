@@ -14,7 +14,7 @@ function Login() {
   });
   const toastOption = {
     position: "top-center",
-    autoClose: 8000,
+    autoClose: 4000,
     pauseOnHover: true,
     draggable: true,
     theme: "dark",
