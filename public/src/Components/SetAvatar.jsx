@@ -23,10 +23,13 @@ function SetAvatar() {
     theme: "dark",
   };
 
-  useEffect(async () => {
-    if (!localStorage.getItem("chat-app-user")) {
-      navigate("/login");
-    }
+  useEffect(() => {
+    const redirectt = () => {
+      if (!localStorage.getItem("chat-app-user")) {
+        navigate("/login");
+      }
+    };
+    redirectt();
   });
 
   const setProfilePicture = async () => {
