@@ -1,5 +1,6 @@
 const User = require("../model/userModel");
 const bcrypt = require("bcrypt");
+const { response } = require("express");
 module.exports.register = async (req, res, next) => {
   try {
     console.log(req.body);
@@ -49,6 +50,29 @@ module.exports.setAvatar = async (req, res, next) => {
       isSet: userData.isAvatarImageSet,
       image: userData.avatarImage,
     });
+  } catch (er) {
+    next(er);
+  }
+};
+// module.exports.getAllUsers = async (req, res, next) => {
+//   try {
+//     const users = await User.find({ _id: { $ne: req.params.id } }).select([
+//       "email",
+//       "username",
+//       "avatarImage",
+//       "_id",
+//     ]);
+//     return res.json(users);
+//   } catch (er) {
+//     next(er);
+//   }
+// };
+module.exports.getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.params.id } });
+    // const userId = req.params.id;
+    // console.log(userId);
+    return res.json(users);
   } catch (er) {
     next(er);
   }

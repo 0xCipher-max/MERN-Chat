@@ -24,7 +24,7 @@ function SetAvatar() {
   };
 
   useEffect(() => {
-    const redirectt = () => {
+    const redirectt = async () => {
       if (!localStorage.getItem("chat-app-user")) {
         navigate("/login");
       }
