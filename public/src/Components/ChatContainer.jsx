@@ -25,14 +25,14 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
     messagee();
   }, [currentChat]);
 
-  // useEffect(() => {
-  //   const getCurrentChat = async () => {
-  //     if (currentChat) {
-  //       await JSON.parse(localStorage.getItem("chat-app-user"))._id;
-  //     }
-  //   };
-  //   getCurrentChat();
-  // }, [currentChat]);
+  useEffect(() => {
+    const getCurrentChat = async () => {
+      if (currentChat) {
+        await JSON.parse(localStorage.getItem("chat-app-user"))._id;
+      }
+    };
+    getCurrentChat();
+  }, [currentChat]);
 
   const handleSendMsg = async (msg) => {
     const data = await JSON.parse(localStorage.getItem("chat-app-user"));
